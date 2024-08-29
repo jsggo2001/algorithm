@@ -15,12 +15,13 @@ void search() {
         cout << "}" << endl;
     } else {
         for (int i = 1; i <= n; i++) {
-            if (chosen[i]) continue;
-            chosen[i] = true;
-            permutation.push_back(i);
-            search();
-            chosen[i] = false;
-            permutation.pop_back();
+            if (!chosen[i]) {
+                chosen[i] = true;
+                permutation.push_back(i);
+                search();
+                chosen[i] = false;
+                permutation.pop_back();
+            }
         }
     }
 }
